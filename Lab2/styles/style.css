@@ -1,0 +1,77 @@
+/* This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp> */
+
+.header{
+  width: 100%;
+  height: 3rem;
+  background-color: whitesmoke;
+  color: darkgray;
+  display: flex;
+  align-items: center;
+}
+#headerTitle{
+  margin-left: 1rem;
+  font-family: verdana;
+  font-weight: bold;
+}
+
+.userSetting{
+  display: flex;
+    align-items: center;
+}
+.userSettingValue {
+  margin-left: 1rem;
+}
+.checkbox:hover{
+  cursor: pointer;
+}
+#displayProduct{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+#footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: whitesmoke;
+  color: darkgray;
+  font-weight: bold;
+  font-family: verdana;
+  font-size: 0.75rem;
+}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
