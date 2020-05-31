@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Mustafa Ali Grocery Shopper</title>
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+    </head>
+    <body>
+        <div id="header">
+            <img id="logo" src="./images/groceryName.png">
+            <div class="tab" id="productsTab">
+                Products
+            </div>
+            <div class="tab" id="clientTab" style="border-left: 1px solid #68a56c">
+                User
+            </div>
+            <div class="tab" id="cartTab">
+                <img src="./images/cartWhite.png">
+            </div>
+        </div>
+
+        <div class="tabcontent" id="productsTabContent">
+            <div id="backgroundImageContainer">
+                <div id="newsletterMessage">
+                    <p class="font-2 bold">Brand Deals</p>
+                    <p class="font-4" style="margin-top: 2rem;">Click the button below to sign up for our newsletter and receive premium deals!</p>
+                    <button id="signupButton">Sign Up</button>
+                </div>
+            </div>
+            <div class="productsContainer">
+            </div>
+        </div>
+            
+        <div class="tabcontent" id="clientTabContent" style="height: 100%">
+            <p class="font-2 bold">User Information</p>
+            <div class="userCardOption" id="vegetarianOption">
+                <img class="optionImage" src="./images/vegetarian.jpg">
+                <div class="userCardOptionDescriptionContainer">
+                    <p class="font-3">Vegetarian</p>
+                    <p class="font-4 choiceDesc">Would you like your food to be strictly vegetarian?</p>
+                </div>
+                <div class="userCardOpionYes userCardOptionChoice" onclick="userCardOptionClicked(this, 'VEGETARIAN_YES')">Yes</div>
+                <div class="userCardOpionNo userCardOptionChoice" onclick="userCardOptionClicked(this, 'VEGETARIAN_NO')">No</div>
+            </div>
+            <div class="userCardOption" id="glutenFreeOption">
+                <img class="optionImage" src="./images/glutenFree.jpg">
+                <div class="userCardOptionDescriptionContainer">
+                    <p class="font-3">Gluten Free</p>
+                    <p class="font-4 choiceDesc">Would you like your food to be strictly gluten free?</p>
+                </div>
+                <div class="userCardOpionYes userCardOptionChoice" onclick="userCardOptionClicked(this, 'GLUTEN_FREE_YES')">Yes</div>
+                <div class="userCardOpionNo userCardOptionChoice" onclick="userCardOptionClicked(this, 'GLUTEN_FREE_NO')">No</div>
+            </div>
+            <div class="userCardOption" id="organicOption">
+                <img class="optionImage" src="./images/organic.jpg">
+                <div class="userCardOptionDescriptionContainer">
+                    <p class="font-3">Organic</p>
+                    <p class="font-4 choiceDesc">Would you like your food to be strictly organic?</p>
+                </div>
+                <div class="userCardOpionYes userCardOptionChoice" onclick="userCardOptionClicked(this,'ORGANIC_YES')">Yes</div>
+                <div class="userCardOpionNo userCardOptionChoice" onclick="userCardOptionClicked(this, 'ORGANIC_NO')">No</div>
+            </div>
+        </div>
+        <div class="tabcontent" id="cartTabContent">
+            <div class="cartSummary">
+                <p class="font-2">Shopping Cart</p>
+                <div id="shoppingCartContainer">
+                </div>
+            </div>
+            <div class="shippingOption" id="premierShippingOption">
+                <img class="shippingIcon" id="premierShippingIcon" src="./images/premierShipping.png">
+                <div>
+                    <p class="font-3 bold shippingType">Premier Delivery</p>
+                    <p class="font-4">Get next-day delivery for a whole year for only $9.95</p>
+                </div>
+            </div>
+            <div class="shippingOption" id="standardShippingOption" style="margin-bottom: 0;">
+                <img class="shippingIcon" id="standardShippingIcon" src="./images/standardShipping.png">
+                <div>
+                    <p class="font-3 bold shippingType">Free* Standard Shipping</p>
+                    <p class="font-4">Faster delivery options available to most countries</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p class="font-4">Website Designed by Mustafa Ali</p>
+        </footer>
+    </body>
+    <script src="groceryItems.js"></script>
+    <script src="script.js"></script>
+</html>

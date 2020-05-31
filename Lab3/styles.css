@@ -18,34 +18,61 @@ html, body{
     margin-left: 1rem;
 }
 
-.tab{
-    width: 5rem;
-    height: 100%;
-    background-color: #639e67;
-    display: flex;
+#wizardHeader{
+    display:  flex;
+    background-color: #6AA86F;
     align-items: center;
-    justify-content: center;
+}
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 35px solid transparent;
+    border-bottom: 35px solid transparent;
+    border-left: 30px solid #639e67;
+}
+.wizardHeaderStep{
+    padding: 1rem;
+    background-color: #639e67;
+    color: white;
+}
+.wizardHeaderStep .font-4{
+    color: lightgray;
+}
+.activeStep{
+    background-color: #56865a;
+}
+.activeStepArrow{
+    border-left: 30px solid #56865a;
+}
+.wizardHeaderStep:hover{
+    cursor: pointer;
+    background-color: #7bc480;
+    transition: all 0.3s;
+}
+.arrowHover{
+    border-left: 30px solid #7bc480;
+    transition: all 0.3s;
+}
+.productFilterBar{
+    display: flex;
+    background-color: #6AA86F;
+}
+.productFilterTab{
+    padding: 1rem;
+    font-family: verdana;
     color: white;
     font-weight: bold;
     font-size: 0.75rem;
+    border-left: 1px solid #68a56c;
+    background-color: #639e67;
 }
-
-#productsTab{
-    margin-left: 1.5rem;
-}
-#cartTab{
-    margin-left: auto;
-}
-#cartTab img{
-    height: 2rem;
-}
-
-.tab:hover{
-    background-color: #7bc480;
-    cursor: pointer;
-}
-.tabActive{
+.productFilterTabActive{
     background-color: #56865a;
+}
+.productFilterTab:hover{
+    cursor: pointer;
+    background-color: #7bc480;
+    transition: all 0.3s;
 }
 .font-2{
     font-size: 1.5rem;
@@ -145,6 +172,7 @@ p{
 }
 .productsContainer{
     margin-top: 1rem;
+    margin-bottom: 4rem;
 }
 .product{
     min-width: 10rem;
@@ -272,8 +300,12 @@ p{
     padding: 0.5rem;
 }
 footer{
-    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 1rem;
     background-color: #6AA86F;
     color: white;
 }
+

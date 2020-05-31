@@ -5,19 +5,19 @@ document.querySelector("#glutenFreeOption .userCardOpionYes").classList.add("use
 document.querySelector("#organicOption .userCardOpionYes").classList.add("userOptionNonActive");
 
 let tabsAndContent = {
-    Product : [document.getElementById("productsTab"), document.getElementById("productsTabContent")],
-    Client: [document.getElementById("clientTab"), document.getElementById("clientTabContent")],
-    Cart: [document.getElementById("cartTab"), document.getElementById("cartTabContent")]
+    Product : [document.getElementById("step2"), document.getElementById("productsTabContent")],
+    Client: [document.getElementById("step1"), document.getElementById("clientTabContent")],
+    Cart: [document.getElementById("step3"), document.getElementById("cartTabContent")]
 }
 
 //initial visible page
-tabsAndContent.Product[1].classList.add("showTabContent");
-tabsAndContent.Product[0].classList.add("tabActive")
+tabsAndContent.Client[1].classList.add("showTabContent");
 
 let userOptions = {
     vegetarian: false,
     glutenFree: false,
-    organic: false
+    organic: false,
+    filter: 'All'
 }
 let userSelectedProducts = []
 
@@ -69,8 +69,41 @@ addToCart = (productName, productPrice, productImageURL) => {
 
 }
 
+reselecingItemUponChangingFilter = (productName) =>{
+
+    let selectId = productName+"_select";
+    let addToCartBtnId = productName+"_addToCartBtn";
+    let selectedIconId = productName+"_selectedIcon";
+    let select = document.getElementById(selectId);
+    let addToCartButton = document.getElementById(addToCartBtnId);
+    let selectedIcon = document.getElementById(selectedIconId);
+
+    let selItem = []
+
+    for (let i = userSelectedProducts.length-1; i>=0; i--) {
+        if (userSelectedProducts[i][0] === productName) {
+            selItem = userSelectedProducts[i];
+            break;
+        }
+    }
+
+    select.value = selItem[2];
+    select.disabled = true;
+    addToCartButton.classList.remove("addToCartButton");
+    addToCartButton.classList.add("removeFromCartButton");
+    addToCartButton.textContent = "Remove"
+    selectedIcon.classList.remove("hideIcon")
+}
+
 generateProductCards = () => {
     let products = grocerylist;
+
+    let userPreferences = `You have selected your preferences to be ${userOptions.vegetarian ? ' |Vegetarian| ' : ''} ${userOptions.glutenFree ? ' |Gluten Free| ' : ''} ${userOptions.organic ? ' |Organic|' : ''}`
+    if (!userOptions.vegetarian && !userOptions.glutenFree && !userOptions.organic) {
+        userPreferences = 'You have not selected any preferences.'
+    }
+    document.getElementById('preferencesMessage').textContent=`The products shown below have been filtered based on your preferences.
+    ${userPreferences}`
 
     //sorting by price
     let productNameAndPriceArray = []
@@ -101,7 +134,8 @@ generateProductCards = () => {
 
         if (userOptions.vegetarian && !productInfo.Vegetarian ||
             userOptions.glutenFree && !productInfo.GlutenFree ||
-            userOptions.organic && !productInfo.Organic) {
+            userOptions.organic && !productInfo.Organic ||
+            (userOptions.filter !== 'All' && userOptions.filter !== productInfo.Category)) {
                 return;
             }
         
@@ -136,6 +170,10 @@ generateProductCards = () => {
         </div>
         `
         productsContainer.appendChild(productContainer);
+        
+        if (selected === "" ) {
+            reselecingItemUponChangingFilter(product)
+        }
     })
 }
 
@@ -191,13 +229,6 @@ generateShoppingCart = () => {
 
 generateProductCards();
 
-//Cart tab hover animation
-tabsAndContent.Cart[0].addEventListener("mouseenter", ()=>{
-    cartTab.querySelector("img").src="./images/cartBlack.png"
-})
-tabsAndContent.Cart[0].addEventListener("mouseleave", ()=>{
-    cartTab.querySelector("img").src="./images/cartWhite.png"
-})
 
 //hovering over standard shipping
 document.getElementById("standardShippingOption").addEventListener("mouseenter", ()=>{
@@ -215,8 +246,26 @@ document.getElementById("premierShippingOption").addEventListener("mouseleave", 
     document.getElementById("premierShippingIcon").src="./images/premierShipping.png";
 });
 
+//adding active colr to product filter tab
+productFilterActiveTabUpdate = (tabClicked) => {
+    document.querySelectorAll(".productFilterTab").forEach(prodTab => {
+        if (prodTab !== tabClicked) {
+            if (prodTab.classList.contains('productFilterTabActive')) {
+                prodTab.classList.remove('productFilterTabActive')
+            }
+        } else if (prodTab === tabClicked) {
+            if (!tabClicked.classList.contains('productFilterTabActive')) {
+                tabClicked.classList.add('productFilterTabActive');
+            }
+        }
+    
+    })
+}
+
 //Changing active tab and associated color
-tabsClicked = (tab) => {
+tabsClicked = (tabId, arrowId) => {
+
+    let tab = document.getElementById(tabId);
 
     if (tab === tabsAndContent.Cart[0]) {
         generateShoppingCart();
@@ -225,27 +274,28 @@ tabsClicked = (tab) => {
         document.body.style.height = window.innerHeight;
     }
 
+    document.getElementById("firstArrow").classList.remove('activeStepArrow');
+    document.getElementById("secondArrow").classList.remove('activeStepArrow');
+    document.getElementById("thirdArrow").classList.remove('activeStepArrow');
+
     Object.keys(tabsAndContent).forEach(elem => {
         if (tabsAndContent[elem][0] === tab) {
-            tabsAndContent[elem][0].classList.add("tabActive");
+            tabsAndContent[elem][0].classList.add("activeStep");
+            document.getElementById(arrowId).classList.add("activeStepArrow")
             tabsAndContent[elem][1].classList.add("showTabContent");
         }
         else { 
-            if (tabsAndContent[elem][0].classList.contains("tabActive")) {
-                tabsAndContent[elem][0].classList.remove("tabActive");
-            }
-            if (tabsAndContent[elem][1].classList.contains("showTabContent")) {
-                tabsAndContent[elem][1].classList.remove("showTabContent");
-            }
+            tabsAndContent[elem][0].classList.remove("activeStep");
+            tabsAndContent[elem][1].classList.remove("showTabContent");
         }
     })
 }
 
 
 // Changing Tabs
-tabsAndContent.Cart[0].addEventListener("click", ()=> tabsClicked(tabsAndContent.Cart[0]));
-tabsAndContent. Product[0].addEventListener("click", ()=>tabsClicked(tabsAndContent.Product[0]));
-tabsAndContent.Client[0].addEventListener("click", ()=>tabsClicked(tabsAndContent.Client[0]));
+tabsAndContent.Cart[0].addEventListener("click", ()=> tabsClicked("step3", "thirdArrow"));
+tabsAndContent. Product[0].addEventListener("click", ()=>tabsClicked("step2", "secondArrow"));
+tabsAndContent.Client[0].addEventListener("click", ()=>tabsClicked("step1", "firstArrow"));
 
 userCardOptionClicked = (item, optionClicked) => {
 
@@ -284,6 +334,21 @@ userCardOptionClicked = (item, optionClicked) => {
     generateProductCards()  
 }
 
+productFilterClicked = (event, option) => {
+    //to update the active tab
+    productFilterActiveTabUpdate(event.target);
+    userOptions.filter = option;
+    generateProductCards()
+}
+
+wizardHeaderStepHoverOff = (arrowId) => {
+    let arrow = document.getElementById(arrowId);
+    arrow.classList.remove('arrowHover')
+}
+wizardHeaderStepHover = (arrowId) => {
+    let arrow = document.getElementById(arrowId);
+    arrow.classList.add('arrowHover')
+}
 
 
 

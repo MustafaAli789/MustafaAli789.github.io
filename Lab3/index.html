@@ -4,25 +4,50 @@
         <link rel="stylesheet" type="text/css" href="./styles.css">
     </head>
     <body>
-        <div id="header">
+        <div id="wizardHeader">
             <img id="logo" src="./images/groceryName.png">
-            <div class="tab" id="productsTab">
-                Products
+            <div class="wizardHeaderStep activeStep" id="step1" style="margin-left: 0.5rem;" onmouseover="wizardHeaderStepHover('firstArrow')" onmouseout="wizardHeaderStepHoverOff('firstArrow')">
+                <p class="font-3 bold">Step 1</p>
+                <p class="font-4">User Preferences</p>
             </div>
-            <div class="tab" id="clientTab" style="border-left: 1px solid #68a56c">
-                User
+            <div id="firstArrow" class="arrow-right activeStepArrow"></div>
+            <div class="wizardHeaderStep" id="step2" onmouseover="wizardHeaderStepHover('secondArrow')" onmouseout="wizardHeaderStepHoverOff('secondArrow')">
+                <p class="font-3 bold">Step 2</p>
+                <p class="font-4">Product Selection</p>
             </div>
-            <div class="tab" id="cartTab">
-                <img src="./images/cartWhite.png">
+            <div id="secondArrow" class="arrow-right"></div>
+            <div class="wizardHeaderStep" id="step3" onmouseover="wizardHeaderStepHover('thirdArrow')" onmouseout="wizardHeaderStepHoverOff('thirdArrow')">
+                <p class="font-3 bold">Step 3</p>
+                <p class="font-4">Shopping Cart</p>
             </div>
+            <div id="thirdArrow" class="arrow-right"></div>
         </div>
-
         <div class="tabcontent" id="productsTabContent">
             <div id="backgroundImageContainer">
                 <div id="newsletterMessage">
-                    <p class="font-2 bold">Brand Deals</p>
-                    <p class="font-4" style="margin-top: 2rem;">Click the button below to sign up for our newsletter and receive premium deals!</p>
-                    <button id="signupButton">Sign Up</button>
+                    <p class="font-2 bold">Filtered Products</p>
+                    <p id="preferencesMessage" class="font-4" style="margin-top: 2rem;">The products shown below have been filtered based on your preferences. Click Change to update preferences!</p>
+                    <button id="signupButton" onclick="tabsClicked('step1', 'firstArrow')">Change</button>
+                </div>
+            </div>
+            <div class="productFilterBar">
+                <div style="border-left: none;" class="productFilterTab productFilterTabActive" onclick="productFilterClicked(event, 'All')">
+                    All
+                </div>
+                <div class="productFilterTab"  onclick="productFilterClicked(event, 'Fruits/Veggies')">
+                    Fruits/Veggies
+                </div>
+                <div class="productFilterTab" onclick="productFilterClicked(event, 'Meat and Alt.')">
+                    Meat and Alt.
+                </div>
+                <div class="productFilterTab" onclick="productFilterClicked(event,'Dairy')">
+                    Dairy
+                </div>
+                <div class="productFilterTab" onclick="productFilterClicked(event,'Grain')">
+                    Grain
+                </div>
+                <div class="productFilterTab" onclick="productFilterClicked(event,'Cooking')">
+                    Cooking
                 </div>
             </div>
             <div class="productsContainer">
@@ -30,7 +55,7 @@
         </div>
             
         <div class="tabcontent" id="clientTabContent" style="height: 100%">
-            <p class="font-2 bold">User Information</p>
+            <p class="font-2 bold">User Preferences</p>
             <div class="userCardOption" id="vegetarianOption">
                 <img class="optionImage" src="./images/vegetarian.jpg">
                 <div class="userCardOptionDescriptionContainer">
@@ -72,7 +97,7 @@
                     <p class="font-4">Get next-day delivery for a whole year for only $9.95</p>
                 </div>
             </div>
-            <div class="shippingOption" id="standardShippingOption" style="margin-bottom: 0;">
+            <div class="shippingOption" id="standardShippingOption" style="margin-bottom: 3.5rem;">
                 <img class="shippingIcon" id="standardShippingIcon" src="./images/standardShipping.png">
                 <div>
                     <p class="font-3 bold shippingType">Free* Standard Shipping</p>
