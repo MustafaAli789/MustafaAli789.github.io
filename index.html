@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Mustafa Ali Survey</title>
+        <link href="./styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="header">Youtube Evaluation</div>
+        <div id="content">
+            <div class="formSection" style="margin-top: 1rem">
+                <span class="font-5">
+                    Please provide feedback about the user interface of Youtubes Website.
+                </span>
+                <a href="http://www.youtube.com" class="font-3">Youtube.com</a>
+                <a href="http://www.youtube.com">
+                    <img id="youtubeImage" src="youtubeImage.PNG">
+                </a>
+            </div>
+            <form>
+                <div class="formSection">
+                    <p class="font-3 formSectionTitle">Does Youtube's U.I lack color?</p>
+                    <div class="radioGroup">
+                        <div class="buttonLabelGroup" style="margin-right: 3px">
+                            <input type="radio" id="yes" value="yes" name="color">
+                            <label for="yes" class="font-2">Yes</label> 
+                        </div>
+                        <div class="buttonLabelGroup" style="margin-left: 3px">
+                            <input type="radio" id="no" value="no" name="color">
+                            <label for="no" class="font-2">No</label> 
+                        </div>
+                    </div>  
+                </div>
+                <div class="formSection" id="thumbnailSizeFormSection">
+                    <label for="thumbnailSize" class="font-3">Select what size Youtube thumbnails should be to increase accassability.</label>
+                    <select id="thumbnailSize">
+                      <option value="smaller">Smaller</option>
+                      <option value="sameSize">Same size</option>
+                      <option value="larger">Larger</option>
+                    </select>
+                </div>
+                <div class="formSection" id="efficientTasksFormSection">
+                    <p class="font-3 formSectionTitle">Which tasks could be made more efficient in Youtubes interface?</p>
+                    <div class="checkboxField">
+                        <input type="checkbox" id="uploading" value="uploading">
+                        <label for="uploading" class="font-2">Uploading a video</label> 
+                    </div>
+                    <div class="checkboxField">
+                        <input type="checkbox" id="downloading" value="downloading">
+                        <label for="downloading" class="font-2">Viewing Video Stats.</label> 
+                    </div>
+                    <div class="checkboxField">
+                        <input type="checkbox" id="liking" value="liking">
+                        <label for="liking" class="font-2">Batch Liking Videos</label> 
+                    </div>
+                </div>
+                <div class="formSection">
+                    <p class="font-3 formSectionTitle">How satisfied are you with the following aspects of Youtubes U.I</p>
+                    <div id="likertQuestionContainer">
+                        <p class="font-2 rating1">Very Unsatisfied</p>
+                        <p class="font-2 rating2">Unsatisfied</p>
+                        <p class="font-2 rating3">Neutral</p>
+                        <p class="font-2 rating4">Satisfied</p>
+                        <p class="font-2 rating5">Very Satisfied</p>
+                        <p class="font-2 option1">Color</p>
+                        <p class="font-2 option2">Thumbnails</p>
+                        <p class="font-2 option3">Sidebar</p>
+                        <p class="font-2 option4">Comments Section</p>
+                        <input type="range" min="1" max="100" value="50" class="slider" id="option1Slider">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="option2Slider">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="option3Slider">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="option4Slider">
+                    </div>
+                </div>
+                <div class="formSection">
+                    <p class="font-3 formSectionTitle">What are your thoughts on the lack of a dark theme in Youtubes user interface?</p>
+                    <input type="text" name="q1Field" id="q1Field" placeholder="Enter response here..." />    
+                </div>
+                <div class="formSection">
+                    <p class="font-3 formSectionTitle">If you have any additional comments regarding Youtubes interface, please comment down below.</p>
+                    <textarea style="resize: none" id="commentsTextArea" name="comment" form="usrform" placeholder="Enter text here..."></textarea>
+                </div>
+                <div class="submitRow">
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    <footer id="footer">Website Designed by Mustafa Ali</footer>
+</html>
