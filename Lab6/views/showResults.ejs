@@ -1,0 +1,69 @@
+<html lang="en-US">
+<head>
+    <title>Survey Analysis</title>
+</head>
+
+<body>
+    <h1>Survey analysis</h1>
+    <h2>U.I Lack Color</h2>
+    <ul>
+        <li>Yes :  <%= data['uiLackColorRadios']['yes'] %></li>
+        <li>No :  <%= data['uiLackColorRadios']['no'] %></li>
+    </ul>
+    <h2>Recommended Thumbnail Size</h2>
+    <ul>
+    <% for (key in data['thumbSizeDropdown']){ %>
+        <li><%= key %> :  <%= data['thumbSizeDropdown'][key] %></li>
+    <% } %>    
+    </ul>
+    <h2>Uploading Vid More Efficient</h2>
+    <ul>
+        <li>Selected :  <%= data['uploadingVidMoreEfficient']['on'] %></li>  
+    </ul>
+    <h2>Video Stats More Efficient</h2>
+    <ul>
+        <li>Selected :  <%= data['videoStatsMoreEfficient']['on'] %></li>  
+    </ul>
+    <h2>Batch Liking More Efficient</h2>
+    <ul>
+        <li>Selected :  <%= data['batchLikingMoreEfficient']['on'] %></li>  
+    </ul>
+    <h2>Youtube Color Satisfaction</h2>
+    <ul>
+    <% for (key in data['colorRange']){ %>
+        <li><%= key %> :  <%= data['colorRange'][key] %></li>
+    <% } %>    
+    </ul>
+    <h2>Youtube Thumbnail Satisfaction</h2>
+    <ul>
+    <% for (key in data['thumbnailsRange']){ %>
+        <li><%= key %> :  <%= data['thumbnailsRange'][key] %></li>
+    <% } %>    
+    </ul>
+    <h2>Youtube Sidebar Satisfaction</h2>
+    <ul>
+    <% for (key in data['sidebarRange']){ %>
+        <li><%= key %> :  <%= data['sidebarRange'][key] %></li>
+    <% } %>    
+    </ul>
+    <h2>Youtube Comments Satisfaction</h2>
+    <ul>
+    <% for (key in data['commentsRange']){ %>
+        <li><%= key %> :  <%= data['commentsRange'][key] %></li>
+    <% } %>    
+    </ul>
+    <h2>Dark Theme Response</h2>
+    <ul>
+    <% for (key in data['darkThemeText']){ %>
+        <li><%= key %> :  <%= data['darkThemeText'][key] %></li>
+    <% } %>    
+    </ul>
+    <h2>Additional Comments</h2>
+    <ul>
+    <% for (key in data['additionalComments']){ %>
+        <li><%= key %> :  <%= data['additionalComments'][key] %></li>
+    <% } %>    
+    </ul>
+    
+</body>
+</html>

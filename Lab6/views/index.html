@@ -1,0 +1,166 @@
+<html>
+    <head>
+
+        <!-- Style sheet (CSS) and JavaScript scripts necessary to use Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> 
+
+        <title>Mustafa Ali Survey</title>
+        <link href="./styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container-fluid" id="content">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <div id="header">Youtube Evaluation</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <a href="http://www.youtube.com">
+                                <img src="youtubeImage.PNG" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                              <p class="card-text">
+                                Please provide feedback about the user interface of Youtubes Website.
+                                Access it here: <a href="http://www.youtube.com">Youtube</a>
+                              </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p>Does Youtube's U.I lack color?</p>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="uiLackColorRadios" id="uiLackColorRadios1" value="yes" checked>
+                            <label class="form-check-label" for="uiLackColorRadios1">Yes</label>
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="uiLackColorRadios" id="uiLackColorRadios2" value="no" checked>
+                            <label class="form-check-label" for="uiLackColorRadios2">No</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p>Select what size Youtube thumbnails should be to increase accassability.</p>
+                    </div>
+                    <div class="form-group col-12">
+                        <select id="thumbSizeDropdown" name="thumbSizeDropdown" class="form-control">
+                          <option value="smaller" selected>Smaller</option>
+                          <option value="sameSize">Same Size</option>
+                          <option value="larger">Larger</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: -1rem;">
+                    <div class="col-12">
+                        <p>Which tasks could be made more efficient in Youtubes interface?</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="uploadingVidMoreEfficient" class="form-check-input" id="uploadCheck">
+                            <label class="form-check-label" for="uploadCheck">Uploading a video</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="videoStatsMoreEfficient" class="form-check-input" id="videoStatsCheck">
+                            <label class="form-check-label" for="videoStatsCheck">Viewing Video Stats.</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="batchLikingMoreEfficient" class="form-check-input" id="batchLikingCheck">
+                            <label class="form-check-label" for="batchLikingCheck">Batch Liking Videos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p>How satisfied are you with the following aspects of Youtubes U.I?</p>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-2 d-flex justify-content-center">Very Unsatisfied</div>
+                    <div class="col-2 d-flex justify-content-center">Unsatisfied</div>
+                    <div class="col-2 d-flex justify-content-center">Neutral</div>
+                    <div class="col-2 d-flex justify-content-center">Satisfied</div>
+                    <div class="col-2 d-flex justify-content-center">Very Satisfied</div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="colorRange">Color</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <input type="range" name="colorRange" class="form-control-range" id="colorRange">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="thumbnailsRange">Thumbnails</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <input type="range" name="thumbnailsRange" class="form-control-range" id="thumbnailsRange">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="sidebarRange">Sidebar</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <input type="range" name="sidebarRange" class="form-control-range" id="sidebarRange">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="commentsRange">Comments Section</label>
+                    </div>
+                    <div class="col-10 d-flex align-items-center">
+                        <input type="range" name="commentsRange" class="form-control-range" id="commentsRange">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="darkThemeText">What are your thoughts on the lack of a dark theme in Youtubes user interface?</label>
+                            <input type="text" name="darkThemeText" class="form-control" id="darkThemeText" placeholder="Enter response here...">
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="additionalComments">If you have any additional comments regarding Youtubes interface, please comment down below.</label>
+                            <textarea class="form-control" name="additionalComments" id="additionalComments" rows="2"></textarea>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary" style="width: 200px;">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row" style="margin-bottom: 0;" id="footer">
+                <div class="col">
+                    Website Designed by Mustafa Ali
+                </div>
+            </div>
+        </div>
+        <script src="/assets/action.js"></script>
+        <script>
+            function thumbSizeClick(name){
+                document.getElementById("dropdownMenu2").textContent = name;
+            }
+        </script>
+    </body>
+</html>
