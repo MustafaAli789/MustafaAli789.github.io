@@ -62,6 +62,7 @@ submitClicked = () => {
 let disabledDays = ["07/01/2020"]
 
 //used https://webkul.com/blog/jquery-datepicker/
+//https://stackoverflow.com/questions/15400775/jquery-ui-datepicker-disable-array-of-dates
 $(document).ready(function(){
     $("#dateInput").datepicker({
         changeYear: false,
