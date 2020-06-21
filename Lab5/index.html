@@ -23,11 +23,11 @@
                 <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.png" alt="" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Booking</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services <i class="fas fa-concierge-bell"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Booking <i class="far fa-clock"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About <i class="fas fa-question-circle"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team <i class="fas fa-user-friends"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact <i class="fas fa-map-marker-alt"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1"
+                            <a class="portfolio-link" onclick="clickedService('Repair')" data-toggle="modal" href="#portfolioModal"
                                 ><div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -84,13 +84,15 @@
                             /></a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Repair</div>
-                                <div class="portfolio-caption-subheading text-muted">Monday-Thursday, 8:00 a.m to 8:00 p.m</div>
+                                <div class="portfolio-caption-subheading text-muted">
+                                    Chain Repair, Brake Repair, Tire Repair
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2"
+                            <a class="portfolio-link" onclick="clickedService('Accessory')" data-toggle="modal" href="#portfolioModal"
                                 ><div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -98,13 +100,15 @@
                             /></a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Accessory Install</div>
-                                <div class="portfolio-caption-subheading text-muted">Tuesday-Friday, 8:00 a.m to 9:00 p.m</div>
+                                <div class="portfolio-caption-subheading text-muted">
+                                    Bell Attachment, Light Installation
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3"
+                            <a class="portfolio-link" onclick="clickedService('Tune-Up')" data-toggle="modal" href="#portfolioModal"
                                 ><div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -112,7 +116,9 @@
                             /></a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Tune-Up</div>
-                                <div class="portfolio-caption-subheading text-muted">Monday-Friday, 8:00 a.m to 9:00 p.m</div>
+                                <div class="portfolio-caption-subheading text-muted">
+                                    Color Tune-Up, Oil Tune-Up
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -292,7 +298,7 @@
             </div>
         </footer>
         <!-- Portfolio Modals--><!-- Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -301,241 +307,115 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Repair</h2>
+                                    <h2 class="text-uppercase" id="serviceTitle">Repair</h2>
                                     <p class="item-intro text-muted">Fill out form to book service.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.png" alt="" />
-                                    <p>Fix any general purpose issue with your bike ranging from drive train adjustments to suspension replacemnents.</p>
-                                    <ul class="list-inline">
-                                        <li>Available: Monday-Thursday, 8:00 a.m to 8:00 p.m</li>
-                                        <li>Mechanic: Mustafa Ali</li>
-                                        <li>Cost: $25.00</li>
-                                    </ul>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Full Name</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+                                    <p id="serviceDescription">Fix any general purpose issue with your bike ranging from drive train adjustments to suspension replacemnents.</p>
+                                    
+                                    
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                          <div class="card-header" id="headingOne">
+                                            <h2 class="mb-0 d-flex">
+                                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Choose a Service
+                                              </button>
+                                            </h2>
+                                          </div>
+                                      
+                                          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <div class="card-body optionsContainer" id="serviceOptions">
+
+                                            </div>
+                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-email-input" class="col-2 col-form-label">Email</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+                                        <div class="card">
+                                          <div class="card-header" id="headingTwo">
+                                            <h2 class="mb-0 d-flex">
+                                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                Choose a Professional
+                                              </button>
+                                            </h2>
+                                          </div>
+                                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                            <div class="card-body optionsContainer">
+                                                <div class="serviceOptionDiv">
+                                                    <input class="form-check-input" checked type="radio" name="professionalRadios" id="professionalRadio1" value="Mustafa Ali">
+                                                    <label class="form-check-label" for="professionalRadio1">
+                                                        <strong>Mustafa Ali</strong> --- (Monday-Thursday, 8:00 a.m to 8:00 p.m)
+                                                    </label>
+                                                </div>
+                                                <div class="serviceOptionDiv">
+                                                    <input class="form-check-input" type="radio" name="professionalRadios" id="professionalRadio2" value="Alius Aftabittus">
+                                                    <label class="form-check-label" for="professionalRadio2">
+                                                        <strong>Alius Aftabittus</strong> --- (Tuesday-Friday, 8:00 a.m to 9:00 p.m)
+                                                    </label>
+                                                </div>
+                                                <div class="serviceOptionDiv">
+                                                    <input class="form-check-input" type="radio" name="professionalRadios" id="professionalRadio2" value="Tobias Tab">
+                                                    <label class="form-check-label" for="professionalRadio2">
+                                                        <strong>Tobias Tab</strong> --- (Monday-Friday, 8:00 a.m to 9:00 p.m)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
+                                        <div class="card">
+                                          <div class="card-header" id="headingThree">
+                                            <h2 class="mb-0 d-flex">
+                                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                Choose a Date
+                                              </button>
+                                            </h2>
+                                          </div>
+                                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <div class="form-group row">
+                                                    <label for="dateInput"><i class="fas fa-calendar-week"></i>Date</label>
+                                                    <input class="form-control" type="text" id="dateInput">
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="example-time-input" class="col-2 col-form-label">Time</label>
+                                                    <div class="col-10">
+                                                      <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree">
+                                              <h2 class="mb-0 d-flex">
+                                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                                  Enter Your Info
+                                                </button>
+                                              </h2>
+                                            </div>
+                                            <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <div class="form-group d-flex align-items-center">
+                                                        <label for="pwd" class="d-flex align-items-center">
+                                                            <i class="fas fa-envelope-square"></i>
+                                                             Email: </label>
+                                                        <input type="text" class="form-control" id="emailInfo" placeholder="Enter email address...">
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center">
+                                                        <label for="pwd" class="d-flex align-items-center">
+                                                            <i class="fas fa-phone"></i>
+                                                             Phone: </label>
+                                                        <input type="text" class="form-control" id="phoneInfo" placeholder="Enter phone number (XXXXXXXXXX)...zZ">
+                                                    </div>
+                                                    <div class="form-group d-flex align-items-center">
+                                                        <label for="pwd" class="d-flex align-items-center">
+                                                            <i class="fa fa-credit-card"></i>
+                                                            Credit Card:
+                                                        </label>
+                                                        <input type="text" class="form-control" id="creditCardInfo" placeholder="Enter credit card info..." name="cc" title="Credit card required in case of last minute cancellaton. There will be a fee of $25.">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Time</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-calendar-week mr-1"></i>Book Service</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Accessory Installation</h2>
-                                    <p class="item-intro text-muted">Fill out form to book service.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
-                                    <p>Install any standard accessory such as a fender or rack or even an accessory of your choice.</p>
-                                    <ul class="list-inline">
-                                        <li>Available: Tuesday-Friday, 8:00 a.m to 9:00 p.m</li>
-                                        <li>Mechanic: Tobias Tab</li>
-                                        <li>Cost: $50.00</li>
-                                    </ul>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Full Name</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-email-input" class="col-2 col-form-label">Email</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Time</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-calendar-week mr-1"></i>Book Service</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Tune-Up</h2>
-                                    <p class="item-intro text-muted">Fill out form to book service.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
-                                    <p>Upgrade your bike with brake adjuments, tire upgrades, seatpost upgrades, grip installation and more.</p>
-                                    <ul class="list-inline">
-                                        <li>Available: Monday-Friday, 8:00 a.m to 9:00 p.m</li>
-                                        <li>Mechanic: Tobias Tab</li>
-                                        <li>Cost: $20.00</li>
-                                    </ul>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Full Name</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-email-input" class="col-2 col-form-label">Email</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Time</label>
-                                        <div class="col-10">
-                                          <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-calendar-week mr-1"></i>Book Service</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>Date: January 2020</li>
-                                        <li>Client: Lines</li>
-                                        <li>Category: Branding</li>
-                                    </ul>
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>Date: January 2020</li>
-                                        <li>Client: Southwest</li>
-                                        <li>Category: Website Design</li>
-                                    </ul>
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project Details Go Here-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>Date: January 2020</li>
-                                        <li>Client: Window</li>
-                                        <li>Category: Photography</li>
-                                    </ul>
-                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                    <button class="btn btn-primary" style="margin-top: 2rem;" onclick="submitClicked()" type="button"><i class="fas fa-calendar-week mr-1"></i>Book Service</button>
                                 </div>
                             </div>
                         </div>
@@ -547,11 +427,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Contact form JS-->
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/script.js"></script>
+        
     </body>
+
 </html>

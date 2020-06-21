@@ -73,6 +73,21 @@ body {
   outline: 0 !important;
 }
 
+.optionsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.serviceOptionDiv{
+  margin-left: 2rem;
+}
+
+.form-control:hover{
+  background-color: lightgoldenrodyellow;
+  cursor: pointer;
+}
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -10113,7 +10128,6 @@ img::-moz-selection {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     border: none;
-    background-color: transparent;
     transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
   }
   #mainNav .navbar-brand {
