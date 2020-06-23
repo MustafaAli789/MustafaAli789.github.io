@@ -68,7 +68,7 @@ $(document).ready(function(){
         changeYear: false,
         changeMonth: true,
         dateFormat: 'mm/dd/yy',
-        minDate: new Date('06/21/2020'),
+        minDate: '-0D',
         maxDate: '+1Y',
         beforeShowDay: function(date) {
             let day = date.getDay();
