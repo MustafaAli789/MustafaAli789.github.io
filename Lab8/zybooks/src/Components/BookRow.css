@@ -1,0 +1,11 @@
+.scrollingWrapper {
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.MuiCard-root{
+    display: inline-block;
+}
+.scrollingWrapper::-webkit-scrollbar {display:none;}
