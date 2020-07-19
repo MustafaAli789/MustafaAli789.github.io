@@ -16,14 +16,14 @@ const useStyles = makeStyles({
   }
 });
 
-export default function DiscvoverPage() {
+export default function DiscvoverPage({updateMyBooks, myBooks}) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
 
   const renderBooks = () => {
       return Books.map((bookCategory, i) => {
-          return(<BookRow key={i} bookCategoryObject={bookCategory} />)
+          return(<BookRow showProgressBar={false} myBooks={myBooks} updateMyBooks={updateMyBooks} key={i} bookCategoryObject={bookCategory} />)
       })
   }
 

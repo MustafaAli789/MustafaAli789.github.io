@@ -3,6 +3,7 @@ import NavigationBar from './Components/NavigationBar';
 import TopBar from './Components/TopBar';
 import DiscoverPage from './Components/DiscoverPage'
 import SearchPage from "./Components/SearchPage";
+import MyBooksPage from "./Components/MyBooksPage";
 import './App.css';
 
 
@@ -11,7 +12,31 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      page: 0
+      page: 0,
+      myBooks: []
+    }
+  }
+
+  updateMyBooks = (action, bookInfo) => {
+    console.log("hello")
+    if (action === 'REMOVE') {
+      let id = bookInfo.id;
+      let newMyBooks = this.state.myBooks;
+      newMyBooks = newMyBooks.filter(book => book.id != id);
+      this.setState({myBooks: newMyBooks})
+    } else if (action === "ADD"){
+      let newMyBooks = this.state.myBooks;
+      newMyBooks.push(bookInfo);
+      this.setState({myBooks: newMyBooks})
+    } else if (action === "REPLACE"){
+      let myNewBooks = this.state.myBooks;
+      myNewBooks.forEach(myBook => {
+        if (myBook.id === bookInfo.id) {
+          myBook.page = bookInfo.page;
+          myBook.rating = bookInfo.rating;
+        }
+      })
+      this.setState({myBooks: myNewBooks})
     }
   }
 
@@ -32,11 +57,11 @@ class App extends React.Component {
   renderPage = () => {
     switch(this.state.page){
       case 0:
-        return(<div className="content"><DiscoverPage /></div>);
+        return(<div className="content"><DiscoverPage myBooks={this.state.myBooks} updateMyBooks={this.updateMyBooks} /></div>);
       case 1:
-        return(<div className="content"><SearchPage /></div>);
+        return(<div className="content"><SearchPage myBooks={this.state.myBooks} updateMyBooks={this.updateMyBooks} /></div>);
       case 2:
-        return(<div>My Books Page</div>);
+        return(<div className="content"><MyBooksPage changePage={this.changePage} myBooks={this.state.myBooks} updateMyBooks={this.updateMyBooks} /></div>);
     }
   }
 

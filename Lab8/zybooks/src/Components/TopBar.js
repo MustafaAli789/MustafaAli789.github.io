@@ -32,7 +32,7 @@ export default function TopBar({page, changePage}) {
   }
 
   return (
-    <div className={classes.root} style={{ position: "fixed", width: "inherit" }}>
+    <div className={classes.root} style={{ position: "fixed", width: "inherit", zIndex: "1" }}>
       <AppBar position="static" style={{ backgroundColor: "red"}}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={()=>changePage(0)}>

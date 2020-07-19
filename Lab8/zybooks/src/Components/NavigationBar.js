@@ -16,7 +16,7 @@ const NavigationBar = ({page, changePage}) => {
       }}
       showLabels
       className="navBar"
-      style={{ position: "fixed", bottom: "-1px", width:"inherit" }}
+      style={{ position: "fixed", width:"inherit" }}
     >
       <BottomNavigationAction className="navBarItem" label="Discover" icon={<MenuBookIcon />} />
       <BottomNavigationAction className="navBarItem" label="Search" icon={<SearchIcon />} />

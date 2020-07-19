@@ -34,8 +34,20 @@
   .Container {
     width: 60%;
   }
+  .navBar{
+    bottom: 60px;
+  }
+  .MuiDialog-paperFullScreen{
+    width: 60%!important;
+    height: 80%!important;
+  }
 }
 
 .content{
   padding: 10px;
+  height: 100%;
+}
+
+html, body, #root{
+  height: 100%;
 }

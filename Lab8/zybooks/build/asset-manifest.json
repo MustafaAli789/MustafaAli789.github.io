@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/zyBooks/static/css/main.1476a8b2.chunk.css",
+    "main.js": "/zyBooks/static/js/main.3da4f127.chunk.js",
+    "main.js.map": "/zyBooks/static/js/main.3da4f127.chunk.js.map",
+    "runtime-main.js": "/zyBooks/static/js/runtime-main.3bedfe0a.js",
+    "runtime-main.js.map": "/zyBooks/static/js/runtime-main.3bedfe0a.js.map",
+    "static/js/2.0ecf8a43.chunk.js": "/zyBooks/static/js/2.0ecf8a43.chunk.js",
+    "static/js/2.0ecf8a43.chunk.js.map": "/zyBooks/static/js/2.0ecf8a43.chunk.js.map",
+    "index.html": "/zyBooks/index.html",
+    "precache-manifest.74e534d3c8888d8f36b9845ffb9f0867.js": "/zyBooks/precache-manifest.74e534d3c8888d8f36b9845ffb9f0867.js",
+    "service-worker.js": "/zyBooks/service-worker.js",
+    "static/css/main.1476a8b2.chunk.css.map": "/zyBooks/static/css/main.1476a8b2.chunk.css.map",
+    "static/js/2.0ecf8a43.chunk.js.LICENSE.txt": "/zyBooks/static/js/2.0ecf8a43.chunk.js.LICENSE.txt",
+    "static/media/HarryPotter.png": "/zyBooks/static/media/HarryPotter.9aa6f458.png",
+    "static/media/bookNotFound.png": "/zyBooks/static/media/bookNotFound.1ed0b882.png",
+    "static/media/cursedChild.jpg": "/zyBooks/static/media/cursedChild.2c485b6e.jpg",
+    "static/media/enchantment.jpg": "/zyBooks/static/media/enchantment.7de28438.jpg",
+    "static/media/findYouInTheDark.jpg": "/zyBooks/static/media/findYouInTheDark.3cd06e00.jpg",
+    "static/media/findingMoana.jpg": "/zyBooks/static/media/findingMoana.a87686a4.jpg",
+    "static/media/fromTheAshes.jpg": "/zyBooks/static/media/fromTheAshes.c8f9f3b4.jpg",
+    "static/media/gameOfThrones.jpg": "/zyBooks/static/media/gameOfThrones.def249f2.jpg",
+    "static/media/kingOfDrugs.jpg": "/zyBooks/static/media/kingOfDrugs.02d52102.jpg",
+    "static/media/mirrorAndTheLight.jpg": "/zyBooks/static/media/mirrorAndTheLight.d7308b09.jpg",
+    "static/media/piecesOfLight.jpg": "/zyBooks/static/media/piecesOfLight.a3f005aa.jpg",
+    "static/media/prophecy.jpg": "/zyBooks/static/media/prophecy.1f64431e.jpg",
+    "static/media/warAndPeace.jpg": "/zyBooks/static/media/warAndPeace.c3a2f367.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3bedfe0a.js",
+    "static/js/2.0ecf8a43.chunk.js",
+    "static/css/main.1476a8b2.chunk.css",
+    "static/js/main.3da4f127.chunk.js"
+  ]
+}

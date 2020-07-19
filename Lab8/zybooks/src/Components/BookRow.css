@@ -4,6 +4,7 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    display: -webkit-box;
 }
 .MuiCard-root{
     display: inline-block;

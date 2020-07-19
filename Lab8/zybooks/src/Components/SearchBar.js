@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBar() {
+export default function SearchBar({handleChange}) {
   const classes = useStyles();
   const [searchBy, setSearchBy] = useState("Name");
   const [placeholder, setPlacehlder] = useState("Search Book Title");
@@ -49,6 +49,7 @@ export default function SearchBar() {
         className={classes.input}
         placeholder={placeholder}
         inputProps={{ 'aria-label': placeholder }}
+        onChange={(e)=>handleChange(e.target.value, searchBy)}
       />
       <Tooltip title="Search">
         <IconButton className={classes.iconButton} aria-label="search">
@@ -56,7 +57,7 @@ export default function SearchBar() {
         </IconButton>
       </Tooltip>
       <Divider className={classes.divider} orientation="vertical" />
-      <Tooltip title={`Search by ${searchBy}`}>
+      <Tooltip title={"Toggle Search By"}>
         <IconButton color="primary" className={classes.iconButton} aria-label="directions" onClick={
           ()=> {
             if (searchBy == "Name"){
