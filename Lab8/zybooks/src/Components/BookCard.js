@@ -54,7 +54,8 @@ const BookCard = ({showProgressBar, page, myRating, selected, id, name, author, 
             if (type === "row") {
                 return {
                     padding: "5px",
-                    display: "flex"
+                    display: "flex",
+                    overflowX: "scroll"
                 }
             } else {
                 return {padding: "5px"}
@@ -120,10 +121,10 @@ const BookCard = ({showProgressBar, page, myRating, selected, id, name, author, 
                     if(!(e.target.tagName === "path" || e.target.tagName === "svg")) setBookInfoOpen(true);
                     }} className="cardContent" style={getStyle("cardContent")}>
                     <img style={getStyle("img")} src={require("../Assets/"+imageSrc)}></img>
-                    {showProgressBar && <LinearProgress variant="determinate" value={(page/500)*100} />}
+                    {showProgressBar && <LinearProgress variant="determinate" value={(page/10)*100} />}
                     <div style={getStyle("div")}>
                         <Tooltip title={name}>
-                            <Typography variant="body2" component="p" style={{ fontWeight: "bold", lineHeight: "1.1", textOverflow: "ellipsis", whiteSpace:"nowrap", overflow: "hidden" }}>
+                            <Typography variant="body2" component="p" style={{ fontWeight: "bold", lineHeight: "1.1", textOverflow: "ellipsis", whiteSpace:type==="row" ? "break-spaces" : "nowrap", overflow: "hidden" }}>
                                 {name}
                             </Typography>
                         </Tooltip>

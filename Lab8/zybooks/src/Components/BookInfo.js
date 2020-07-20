@@ -16,6 +16,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import AlertDialog from "./AlertDialog"
 import Rating from '@material-ui/lab/Rating';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import BookReadPage from "./BookReadPage"
 import "./BookInfo.css"
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +37,7 @@ export default function BookInfo({open, handleClose, bookInfo, updateMyBooks}) {
     const classes = useStyles();
     const [snackBarOpen, setSnackBarOpen] = useState(false);
     const [alertDialogOpen, setAlertDialogOpen] = useState(false);
+    const [bookReadPageOpen, setBookReadPageOpen] = useState(false);
     const getStarredIcon = () => {
         if(!bookInfo.Selected) {
             return(<StarBorderIcon fontSize="small"/>)
@@ -81,7 +83,7 @@ export default function BookInfo({open, handleClose, bookInfo, updateMyBooks}) {
                     </Grid>
                     <Grid item xs={6}>
                         <img className={"bookInfoImg"} src={require("../Assets/"+bookInfo.ImageSrc)}></img>
-                        {bookInfo.Selected && <LinearProgress variant="determinate" value={(bookInfo.Page/500)*100} />}
+                        {bookInfo.Selected && <LinearProgress variant="determinate" value={(bookInfo.Page/10)*100} />}
                         <div style={{ display: "flex", justifyContent:"center", marginTop: "0.25rem" }}>
                             <Typography color="textSecondary" style={{ fontSize: 14}}>
                                 {bookInfo.Rating}
@@ -150,6 +152,7 @@ export default function BookInfo({open, handleClose, bookInfo, updateMyBooks}) {
                         className={classes.button}
                         style={{ width: "100%" }}
                         startIcon={<ChromeReaderModeIcon />}
+                        onClick={()=>setBookReadPageOpen(true)}
                     >
                         Read
                     </Button>
@@ -172,6 +175,7 @@ export default function BookInfo({open, handleClose, bookInfo, updateMyBooks}) {
         </Snackbar>
         <AlertDialog open={alertDialogOpen} handleClose={()=>setAlertDialogOpen(false)} title={"Remove Book from MyBooks"}
                 content={"Are you sure you want to remove " +bookInfo.Name+" from your books?"} agreeText={"Yes"} disagreeText={"No"} handleAlertSelection={handleAlertSelection}/>
+        <BookReadPage open={bookReadPageOpen} handleClose={()=>setBookReadPageOpen(false)} bookInfo={bookInfo} updateMyBooks={updateMyBooks} />
     </div>
   );
 }

@@ -28,18 +28,44 @@
     width: 100%;
     height: 100%;
   }
+  #actionButton{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 70px;
+    right: 35px;
+  }
 }
 
-@media (min-width: 480px) and (max-width: 1200px) {
+.stepLabel .MuiStepLabel-label{
+  font-size: 10px;
+}
+.MuiStepper-root{
+  padding: 0.5rem!important;
+  padding-top: 1rem!important;
+}
+.radioGroup .MuiFormControlLabel-label{
+  font-size: 0.8rem;
+}
+
+@media (min-width: 480px) and (max-width: 10000px) {
   .Container {
-    width: 60%;
+    width: 40%;
   }
   .navBar{
     bottom: 60px;
   }
   .MuiDialog-paperFullScreen{
-    width: 60%!important;
+    width: 40%!important;
     height: 80%!important;
+  }
+  #actionButton{
+    position: absolute;
+    bottom: 130px;
+    z-index: 100;
+    right: 130px;
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -47,7 +73,11 @@
   padding: 10px;
   height: 100%;
 }
+#standard-error, #standard-error-label, #standard-select-age, #standard-select-category, #standard-select-category-label{
+  font-size: 14px;
+}
 
 html, body, #root{
   height: 100%;
 }
+.cardContent::-webkit-scrollbar {display:none;}
