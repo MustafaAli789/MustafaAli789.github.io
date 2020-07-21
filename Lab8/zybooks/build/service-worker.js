@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/zyBooks/precache-manifest.74e534d3c8888d8f36b9845ffb9f0867.js"
+  "/zyBooks/precache-manifest.5785f29b591321ff3f72e33b443100e5.js"
 );
 
 self.addEventListener('message', (event) => {

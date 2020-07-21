@@ -6,6 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import harryPotterBanner from '../Assets/HarryPotter.png'
 import Books from '../Books'
+import BooksFrench from "../BooksFrench"
+import {Language, setLanguage} from "../Language"
 import BookCard from './BookCard'
 import BookRow from './BookRow'
 import Fab from '@material-ui/core/Fab';
@@ -27,7 +29,10 @@ export default function DiscvoverPage({updateMyBooks, myBooks}) {
 
 
   const renderBooks = () => {
-      return Books.map((bookCategory, i) => {
+    let books;
+    if (Language === "English") books = Books;
+    else books = BooksFrench;
+      return books.map((bookCategory, i) => {
           return(<BookRow showProgressBar={false} myBooks={myBooks} updateMyBooks={updateMyBooks} key={i} bookCategoryObject={bookCategory} />)
       })
   }
@@ -39,7 +44,7 @@ export default function DiscvoverPage({updateMyBooks, myBooks}) {
                 <img style={{width: "100%"}} src={harryPotterBanner}></img>
             </CardContent>
             <CardActions>
-                <Button size="small">Buy Now</Button>
+                <Button size="small">{Language === "English"? "Buy Now" : "Acheter maintenant"}</Button>
             </CardActions>
         </Card>
         {renderBooks()}
@@ -52,7 +57,7 @@ export default function DiscvoverPage({updateMyBooks, myBooks}) {
             startIcon={<LibraryBooksIcon />}
             onClick={()=>setWizardOpen(true)}
         >
-            Open Wizard
+            {Language === "English" ? "Open Wizard" : "Ouvrir l'assistant"}
         </Button>
         <div className="pusher"></div>
     </div>

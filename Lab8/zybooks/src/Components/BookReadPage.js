@@ -19,6 +19,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Slider from '@material-ui/core/Slider';
+import {Language} from "../Language"
 import "./BookReadPage.css"
 import "./BookInfo.css"
 
@@ -60,8 +61,12 @@ export default function BookReadPage({open, handleClose, bookInfo, updateMyBooks
     }
 
     const getSnackBarMessage = () => {
-        if(bookInfo.Selected) return `Added ${bookInfo.Name} to my books!`
-        else return `Removed ${bookInfo.Name} from my books!`
+        if(bookInfo.Selected){ 
+            return Language === "English" ? `Added ${bookInfo.Name} to my books!` : `Ajouté ${bookInfo.Name} à mes livres!`
+        }
+        else {
+            return Language === "English" ? `Removed ${bookInfo.Name} from my books!` : `Supprimé ${bookInfo.Name} de mes livres!`
+        }
     }
 
     const updateBookTest = async () => {
@@ -163,8 +168,8 @@ export default function BookReadPage({open, handleClose, bookInfo, updateMyBooks
                 {getSnackBarMessage()}
             </MuiAlert>
         </Snackbar>
-        <AlertDialog open={alertDialogOpen} handleClose={()=>setAlertDialogOpen(false)} title={"Remove Book from MyBooks"}
-                content={"Are you sure you want to remove " +bookInfo.Name+" from your books?"} agreeText={"Yes"} disagreeText={"No"} handleAlertSelection={handleAlertSelection}/>
+        <AlertDialog open={alertDialogOpen} handleClose={()=>setAlertDialogOpen(false)} title={Language === "English" ? "Remove Book from MyBooks" : "Supprimer le livre de MyBooks"}
+                content={Language === "English" ? "Are you sure you want to remove " +bookInfo.Name+" from your books?" : "Voulez-vous vraiment supprimer " + bookInfo.Name +" de vos livres?"} agreeText={Language === "English" ? "Yes":"Oui"} disagreeText={Language === "English" ? "No":"Non"} handleAlertSelection={handleAlertSelection}/>
     </div>
   );
 }

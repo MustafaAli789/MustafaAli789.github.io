@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Books from "../Books"
+import BooksFrench from "../BooksFrench"
+import {Language, setLanguage} from "../Language"
 import BookCard from "./BookCard"
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -36,17 +38,21 @@ function Item(props)
 export default function MyBooksPage({updateMyBooks, myBooks, changePage}){
     const [booksArr, setBooksArr] = useState([]);
     const[carouselItems, setCarouselItems] = useState([])
+    
     useEffect(() => {
         let myBooksArr = []
+        let books;
+        if (Language === "English") books = Books;
+        else books = BooksFrench;
         myBooks.forEach(myBook => {
             let bookInfo;
             let found = false;
             for (let i = 0; i<Books.length; i++) {
                 if (found) break;
-                for (let j =0; j<Books[i].Books.length; j++) {
-                    if(Books[i].Books[j].id === myBook.id) {
+                for (let j =0; j<books[i].Books.length; j++) {
+                    if(books[i].Books[j].id === myBook.id) {
                         found = true;
-                        bookInfo = [Books[i].Category, Books[i].Books[j], myBook];
+                        bookInfo = [books[i].Category, books[i].Books[j], myBook];
                         break;
                     }
                 }
@@ -76,7 +82,7 @@ export default function MyBooksPage({updateMyBooks, myBooks, changePage}){
                         <AddCircleOutlineIcon style={{ fontSize: "6rem" }} />
                     </IconButton>
                     <Typography variant="h5" style={{ fontWeight:"lighter", color:"#b2b2b2" }}>
-                            Add Books
+                            {Language === "English" ? "Add Book" : "Ajouter un Livre"}
                     </Typography>
                 </div>
             }
@@ -88,7 +94,7 @@ export default function MyBooksPage({updateMyBooks, myBooks, changePage}){
                         }
                      </Carousel>
                     <Typography variant="h6" style={{fontWeight: "300", fontSize: "1rem", marginTop: "0.5rem"}}>
-                        All Books
+                        { Language === "English" ? "All Books" : "Tous les livres"}
                     </Typography>
                     <Divider light/>
                     <div style={{ display: "flex", flexWrap: "wrap" }}>

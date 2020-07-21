@@ -11,6 +11,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import AlertDialog from "./AlertDialog"
 import LinearProgress from '@material-ui/core/LinearProgress';
 import BookInfo from "./BookInfo"
+import {Language} from "../Language"
 import './BookCard.css'
 
 const BookCard = ({showProgressBar, page, myRating, selected, id, name, author, desc, rating, category, imageSrc, type, updateMyBooks}) => {
@@ -25,8 +26,12 @@ const BookCard = ({showProgressBar, page, myRating, selected, id, name, author, 
         }
     }
     const getSnackBarMessage = () => {
-        if(selected) return `Added ${name} to my books!`
-        else return `Removed ${name} from my books!`
+        if(selected){ 
+            return Language === "English" ? `Added ${name} to my books!` : `Ajouté ${name} à mes livres!`
+        }
+        else {
+            return Language === "English" ? `Removed ${name} from my books!` : `Supprimé ${name} de mes livres!`
+        }
     }
 
     const getStyle = (component) => {
@@ -148,8 +153,8 @@ const BookCard = ({showProgressBar, page, myRating, selected, id, name, author, 
                     {getSnackBarMessage()}
                 </MuiAlert>
             </Snackbar>
-            <AlertDialog open={alertDialogOpen} handleClose={()=>setAlertDialogOpen(false)} title={"Remove Book from MyBooks"}
-                content={"Are you sure you want to remove " +name+" from your books?"} agreeText={"Yes"} disagreeText={"No"} handleAlertSelection={handleAlertSelection}/>
+            <AlertDialog open={alertDialogOpen} handleClose={()=>setAlertDialogOpen(false)} title={Language === "English" ? "Remove Book from MyBooks" : "Supprimer le livre de MyBooks"}
+                content={Language === "English" ? "Are you sure you want to remove " +name+" from your books?" : "Voulez-vous vraiment supprimer " + name +" de vos livres?"} agreeText={Language === "English" ? "Yes":"Oui"} disagreeText={Language === "English" ? "No":"Non"} handleAlertSelection={handleAlertSelection}/>
             <BookInfo open={bookInfoOpen} handleClose={()=>setBookInfoOpen(false)} bookInfo={{
                 Id: id, Author: author, Description: desc, Name: name, Category: category, ImageSrc: imageSrc, Rating: rating,Selected: selected, Page: page, MyRating: myRating
                 }} updateMyBooks={updateMyBooks}/>

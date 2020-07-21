@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -30,10 +30,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBar({handleChange}) {
+export default function SearchBar({handleChange, Language}) {
   const classes = useStyles();
   const [searchBy, setSearchBy] = useState("Name");
-  const [placeholder, setPlacehlder] = useState("Search Book Title");
+  const [placeholder, setPlacehlder] = useState(Language === "English" ? "Search Book Title": "Rechercher le titre du livre");
 
   const getIcon = () => {
     if (searchBy == "Name") {
@@ -43,6 +43,16 @@ export default function SearchBar({handleChange}) {
     }
   }
 
+  useEffect(()=>{
+    let placeholder = "";
+    if(searchBy === "Name") {
+      placeholder = Language === "English" ? "Search Book Title": "Rechercher le titre du livre"
+    } else {
+      placeholder = Language === "English" ? "Search Book Author": "Auteur du livre"
+    }
+    setPlacehlder(placeholder)
+  }, [Language])
+
   return (
     <Paper component="form" className={classes.root} style={{ marginTop: "4rem", width: "initial" }}>
       <InputBase
@@ -51,21 +61,21 @@ export default function SearchBar({handleChange}) {
         inputProps={{ 'aria-label': placeholder }}
         onChange={(e)=>handleChange(e.target.value, searchBy)}
       />
-      <Tooltip title="Search">
+      <Tooltip title={Language == "English" ? "Search" : "Chercher"}>
         <IconButton className={classes.iconButton} aria-label="search">
           <SearchIcon />
         </IconButton>
       </Tooltip>
       <Divider className={classes.divider} orientation="vertical" />
-      <Tooltip title={"Toggle Search By"}>
+      <Tooltip title={Language === "English" ? "Toggle Search By" : "Toggle Recherche par"}>
         <IconButton color="primary" className={classes.iconButton} aria-label="directions" onClick={
           ()=> {
             if (searchBy == "Name"){
               setSearchBy("Author")
-              setPlacehlder("Search Book Author")
+              setPlacehlder(Language === "English" ? "Search Book Author": "Auteur du livre")
             } else if (searchBy == "Author") {
               setSearchBy("Name")
-              setPlacehlder("Search Book Title")
+              setPlacehlder(Language === "English" ? "Search Book Title" : "Rechercher le titre du livre")
             }
           }
         }>

@@ -5,7 +5,7 @@ import DiscoverPage from './Components/DiscoverPage'
 import SearchPage from "./Components/SearchPage";
 import MyBooksPage from "./Components/MyBooksPage";
 import './App.css';
-
+import { Language } from './Language';
 
 class App extends React.Component {
 
@@ -13,7 +13,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       page: 0,
-      myBooks: []
+      myBooks: [],
+      languageFrench: false
     }
   }
 
@@ -40,6 +41,10 @@ class App extends React.Component {
     }
   }
 
+  toggleLanguageFrench = () => {
+    this.setState({ languageFrench: !this.state.languageFrench })
+  }
+
   changePage = (pageNum) => {
     switch(pageNum){
       case 0:
@@ -59,7 +64,7 @@ class App extends React.Component {
       case 0:
         return(<div className="content"><DiscoverPage myBooks={this.state.myBooks} updateMyBooks={this.updateMyBooks} /></div>);
       case 1:
-        return(<div className="content"><SearchPage myBooks={this.state.myBooks} updateMyBooks={this.updateMyBooks} /></div>);
+        return(<div className="content"><SearchPage Language={Language} myBooks={this.state.myBooks} updateMyBooks={this.updateMyBooks} /></div>);
       case 2:
         return(<div className="content"><MyBooksPage changePage={this.changePage} myBooks={this.state.myBooks} updateMyBooks={this.updateMyBooks} /></div>);
     }
@@ -67,14 +72,14 @@ class App extends React.Component {
 
   render(){
     return(
-      <div className="outerContainer">
-        <div className="Container">
-          <TopBar page={this.state.page} changePage={this.changePage}/>
-          {this.renderPage()}
-          <div></div>
-          <NavigationBar page={this.state.page} changePage={this.changePage}/>
+        <div className="outerContainer">
+          <div className="Container">
+            <TopBar toggleLanguageFrench={this.toggleLanguageFrench} page={this.state.page} changePage={this.changePage}/>
+            {this.renderPage()}
+            <div></div>
+            <NavigationBar page={this.state.page} changePage={this.changePage}/>
+          </div>
         </div>
-      </div>
     )
   }
 }

@@ -19,8 +19,10 @@ import FormLabel from '@material-ui/core/FormLabel'
 import MenuItem from '@material-ui/core/MenuItem';
 import Dialog2 from "./Dialog"
 import Books from "../Books"
+import BooksFrench from "../BooksFrench"
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import BookCard from "./BookCard"
+import {Language} from "../Language"
 import "./Wizard.css"
 import "./BookReadPage.css"
 import "./BookInfo.css"
@@ -54,7 +56,7 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
     const [age, setAge] = useState(1);
-    const [name, setName] = useState("Name");
+    const [name, setName] = useState(Language === "English" ? "Name" : "Nom");
     const [gender, setGender] = useState("female")
     const [dialogOpen, setOpenDialog] = useState(false)
     const [category, setCategory] = useState("Weeks Hot Picks")
@@ -65,12 +67,15 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
         myBooks.forEach(myBook => {
             let bookInfo;
             let found = false;
+            let books;
+            if (Language === "English") books = Books;
+            else books = BooksFrench;
             for (let i = 0; i<Books.length; i++) {
                 if (found) break;
-                for (let j =0; j<Books[i].Books.length; j++) {
-                    if(Books[i].Books[j].id === myBook.id) {
+                for (let j =0; j<books[i].Books.length; j++) {
+                    if(books[i].Books[j].id === myBook.id) {
                         found = true;
-                        bookInfo = [Books[i].Category, Books[i].Books[j], myBook];
+                        bookInfo = [books[i].Category, books[i].Books[j], myBook];
                         break;
                     }
                 }
@@ -81,7 +86,7 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
     }, [myBooks])
 
     function getSteps() {
-        return ['Basic Info', 'Similar Books', 'Book Recommendations'];
+        return [Language === "English" ? 'Basic Info' : 'Informations de base',Language === "English" ?  'Similar Books':'Livres similaires',Language === "English" ?  'Book Recommendations':'Livre Recommandations'];
       }
     const steps = getSteps();
 
@@ -113,8 +118,10 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
       const renderRecommendations = () => {
         let newFilteredBooks = []
         let val = "h"
-
-        Books.forEach(category => {
+        let books;
+        if (Language === "English") books = Books;
+        else books = BooksFrench;
+        books.forEach(category => {
             category.Books.forEach(book => {
                 if (book.Name.toLowerCase().includes(val.toLowerCase())) {
                     newFilteredBooks.push([category.Category, book]);
@@ -140,15 +147,15 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
     const renderStep = () => {
         if (activeStep === 0) {
             return(<div style={{padding: "1rem", display: "flex", flexDirection: "column" }}>
-                <TextField size="small" onChange={(e)=>setName(e.target.value)} required error={age.length === 0} id="standard-error" label="Enter Name" defaultValue="Name" />
+                <TextField size="small" onChange={(e)=>setName(e.target.value)} required error={age.length === 0} id="standard-error" label={Language === "English" ? "Enter Name" : "Entrez le nom"} defaultValue={Language === "English" ? "Name" : "Nom"} />
                 <TextField
                     id="standard-select-age"
                     select
-                    label="Select Age"
+                    label={Language === "English" ? "Select Age" : "Sélectionnez l'âge"}
                     value={age}
                     required
                     onChange={(e)=>setAge(e.target.value)}
-                    helperText="Please select your age"
+                    helperText={Language === "English" ? "Please select your age" : "Veuillez sélectionner votre âge"}
                     style={{ marginTop: "1rem" }}
                     size="small"
                     >
@@ -161,9 +168,9 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
                 <FormControl component="fieldset" style={{ marginTop: "1rem" }}>
                     <FormLabel style={{ fontSize: "0.8rem" }} component="legend">Gender</FormLabel>
                     <RadioGroup className="radioGroup" aria-label="gender" name="gender1" value={gender} onChange={(e)=>setGender(e.target.value)}>
-                        <FormControlLabel value="female" control={<Radio />} label="Female" />
-                        <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        <FormControlLabel value="other" control={<Radio />} label="Other" />
+                        <FormControlLabel value="female" control={<Radio />} label={Language === "English" ? "Female" : "Femme"} />
+                        <FormControlLabel value="male" control={<Radio />} label={Language === "English" ? "Male" : "Masculin"} />
+                        <FormControlLabel value="other" control={<Radio />} label={Language === "English" ? "Other" : "Autre"} />
                     </RadioGroup>
                 </FormControl>
             </div>)
@@ -172,11 +179,11 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
                 <TextField
                     id="standard-select-category"
                     select
-                    label="Select Category"
+                    label={Language==="English" ? "Select Category":"Choisir une catégorie"}
                     value={category}
                     required
                     onChange={(e)=>setCategory(e.target.value)}
-                    helperText="Please select your category"
+                    helperText={Language === "English" ? "Please select your category" : "Veuillez sélectionner votre catégorie"}
                     style={{ marginTop: "1rem", width:"100%" }}
                     size="small"
                     >
@@ -187,7 +194,7 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
                     ))}
                 </TextField>
                 <Typography variant="h6" style={{fontWeight: "400", fontSize: "14px", marginTop: "1rem", color: "rgba(0, 0, 0, 0.54)"}}>
-                    Select Similar Books from Your Shelf
+                    {Language === "English" ? "Select Similar Books from Your Shelf" : "Sélectionnez des livres similaires dans votre étagère"}
                 </Typography>
                 <Divider style={{ marginTop: "0.5rem" }} light/>
                 <div className={"scrollingWrapper"} style={{ marginTop:"1rem" }}>
@@ -209,7 +216,7 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
                     <CloseIcon />
                 </IconButton>
                 <Typography variant="h6" style={{fontWeight: "bold", fontSize: "1rem", textAlign:"center"}}>
-                    Wizard
+                    {Language === "English" ? "Wizard" : "Sorcier"}
                 </Typography>
             </div>
             <div>
@@ -236,7 +243,7 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
                         onClick={handleBack}
                         className={classes.backButton}
                     >
-                        Back
+                        {Language ==="English" ? "Back" : "Arrière"}
                     </Button>
                     <Button variant="contained" color="primary" onClick={()=>{
                         if (activeStep === steps.length - 1) {
@@ -244,14 +251,14 @@ export default function Wizard({open, handleClose, myBooks, updateMyBooks}) {
                         }
                         handleNext();
                         }}>
-                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                        {activeStep === steps.length - 1 ? (Language === "English" ? 'Finish': "Terminer") : (Language === "English" ? 'Next': 'Prochain')}
                     </Button>
                 </div>
             </div>
             )}
         </div>
         </Dialog>
-        <Dialog2 open={dialogOpen} handleClose={()=>setOpenDialog(false)} title={"Error! Invalid Name!"} text="Name must be atleast one character long" exitText={"Close"}/>
+        <Dialog2 open={dialogOpen} handleClose={()=>setOpenDialog(false)} title={Language==="English" ? "Error! Invalid Name!":"Erreur! Nom incorrect!"} text={Language==="English" ? "Name must be atleast one character long": "Le nom doit contenir au moins un caractère"} exitText={Language==="English" ? "Close":"Fermer"}/>
     </div>
   );
 }

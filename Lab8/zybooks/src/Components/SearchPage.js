@@ -3,13 +3,23 @@ import SearchBar from './SearchBar';
 import Typography from '@material-ui/core/Typography';
 import Books from "../Books";
 import BookCard from "./BookCard"
+import BooksFrench from "../BooksFrench"
+import {Language, setLanguage} from "../Language"
 
 class SearchPage extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-            filteredBooks: []
+            filteredBooks: [],
+            searchQuery: "",
+            searchType: "Name"
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.Language !== this.props.Language) {
+            this.onChange(this.state.searchQuery, this.state.searchType);
         }
     }
 
@@ -17,11 +27,13 @@ class SearchPage extends React.Component {
         let newFilteredBooks = []
 
         if (val === "") {
-            this.setState({ filteredBooks: newFilteredBooks })
+            this.setState({ filteredBooks: newFilteredBooks, searchQuery: val, searchType:searchType })
             return;
         }
-
-        Books.forEach(category => {
+        let books;
+        if (this.props.Language === "English") books = Books;
+        else books = BooksFrench;
+        books.forEach(category => {
             category.Books.forEach(book => {
                 if (searchType === "Name" && book.Name.toLowerCase().includes(val.toLowerCase())) {
                     newFilteredBooks.push([category.Category, book]);
@@ -30,7 +42,7 @@ class SearchPage extends React.Component {
                 }
             })
         });
-        this.setState({ filteredBooks: newFilteredBooks })
+        this.setState({ filteredBooks: newFilteredBooks,searchQuery: val, searchType })
     }
 
     renderNoBooks = () => {
@@ -39,7 +51,7 @@ class SearchPage extends React.Component {
                 <React.Fragment>
                     <img style={{ width: "max-content" }} src={require("../Assets/bookNotFound.png")}></img>
                     <Typography variant="h5" style={{ fontWeight:"lighter", color:"#b2b2b2", marginTop: "1rem" }}>
-                        No Books Found
+                        {this.props.Language === "English" ? "No Books Found" : "Aucun livre trouvé"}
                     </Typography>
                 </React.Fragment>
             )
@@ -65,7 +77,7 @@ class SearchPage extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <SearchBar handleChange={this.onChange}/>
+                <SearchBar Language={Language} handleChange={this.onChange}/>
                 <div style={{ display: "flex", alignItems: "center", marginTop: "1rem", flexDirection: "column" }} className="results">
                     {this.renderNoBooks()}
                 </div>
